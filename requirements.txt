@@ -4,3 +4,4 @@ plotly
 google-generativeai
 fpdf
 openpyxl
+tabulate
