@@ -87,8 +87,11 @@ with st.sidebar:
     uploaded_file = st.file_uploader("Unggah dataset (CSV/Excel)", type=['csv', 'xlsx'])
     
     if uploaded_file and st.session_state.df is None:
-        if uploaded_file.name.endswith('.csv'): st.session_state.df = pd.read_csv(uploaded_file)
-        else: st.session_state.df = pd.read_excel(uploaded_file)
+        if uploaded_file.name.endswith('.csv'): 
+            # Tambahin sep=None dan engine='python' biar Pandas otomatis nebak pemisahnya koma atau titik koma
+            st.session_state.df = pd.read_csv(uploaded_file, sep=None, engine='python')
+        else: 
+            st.session_state.df = pd.read_excel(uploaded_file)
         st.success("Data berhasil dimuat!")
         st.rerun()
         
