@@ -1,0 +1,5 @@
+# Jangan upload rahasia negara!
+.streamlit/
+__pycache__/
+*.db
+uploads/
